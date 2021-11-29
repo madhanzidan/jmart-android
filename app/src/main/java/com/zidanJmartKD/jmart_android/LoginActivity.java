@@ -10,13 +10,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.zidanJmartKD.R;
 import com.zidanJmartKD.jmart_android.model.Account;
 import com.zidanJmartKD.jmart_android.request.LoginRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
@@ -34,34 +39,49 @@ public class LoginActivity extends AppCompatActivity {
         EditText inputEmailLogin = findViewById(R.id.inputEmailLogin);
         EditText inputPasswordLogin = findViewById(R.id.inputPasswordLogin);
         Button loginButton = findViewById(R.id.loginButton);
+        TextView registerNowHyperlink = findViewById(R.id.registerNowHyperLink);
 
-        loginButton.setOnClickListener(new View.OnClickListener()
-        {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 LoginRequest newLogin = new LoginRequest(
                         inputEmailLogin.getText().toString(),
-                        inputPasswordLogin.getText().toString(), new Response.Listener<String>()
-                {
-                    public void onResponse(String response)
-                    {
-                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-                        Intent loginSuccess = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(loginSuccess);
-                    }
-                },
-                        new Response.ErrorListener()
-                        {
+                        inputPasswordLogin.getText().toString(),
+                        new Response.Listener<String>() {
                             @Override
-                            public void onErrorResponse(VolleyError error)
-                            {
-                                Toast.makeText(getApplicationContext(), "Sorry, something went wrong", Toast.LENGTH_SHORT).show();
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
+                                    if (jsonObject != null) {
+                                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                                        loggedAccount = gson.fromJson(jsonObject.toString(), Account.class);
+                                        Intent loginSuccess = new Intent(LoginActivity.this, MainActivity.class);
+                                        startActivity(loginSuccess);
+                                    }
+                                } catch (JSONException e) {
+                                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                    e.printStackTrace();
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), "Something Went Wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
                 );
+                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                queue.add(newLogin);
             }
         });
-        TextView registerNowHyperLink = findViewById(R.id.registerNowHyperLink);
+        registerNowHyperlink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerPage = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(registerPage);
+            }
+
+        });
     }
 }
