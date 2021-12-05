@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/constraintLayout"
+    tools:context=".jmart_android.ProductsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/buttonPrevPageProducts"
+        android:layout_width="85dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="PREV"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonNextPageProducts"
+        android:layout_width="85dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="9dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="NEXT"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/insertPageNumberProducts"
+        app:layout_constraintStart_toEndOf="@+id/buttonPrevPageProducts"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonGoPageProducts"
+        android:layout_width="85dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="GO"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/insertPageNumberProducts"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/insertPageNumberProducts"
+        android:layout_width="92dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="#Page"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:text="1"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/buttonGoPageProducts"
+        app:layout_constraintStart_toEndOf="@+id/buttonNextPageProducts"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listViewProducts"
+        android:layout_width="411dp"
+        android:layout_height="534dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNextPageProducts" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

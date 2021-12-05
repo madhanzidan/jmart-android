@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".jmart_android.CreateProductActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="379dp"
+        android:layout_height="480dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/inputNameCreateProduct"
+                android:layout_width="346dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="17dp"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelCreateProduct" />
+
+            <EditText
+                android:id="@+id/inputWeightCreateProduct"
+                android:layout_width="346dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="17dp"
+                android:ems="10"
+                android:hint="Weight"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputNameCreateProduct" />
+
+            <EditText
+                android:id="@+id/inputPriceCreateProduct"
+                android:layout_width="346dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="17dp"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputWeightCreateProduct" />
+
+            <EditText
+                android:id="@+id/inputDiscountCreateProduct"
+                android:layout_width="346dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="17dp"
+                android:ems="10"
+                android:hint="Discount"
+                android:inputType="number|numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputPriceCreateProduct" />
+
+            <TextView
+                android:id="@+id/labelCreateProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="229dp"
+                android:text="Create Product"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelConditionCreateProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="301dp"
+                android:text="Condition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDiscountCreateProduct" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupConditionCreateProduct"
+                android:layout_width="171dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelConditionCreateProduct"
+                app:layout_constraintTop_toBottomOf="@+id/inputDiscountCreateProduct">
+
+                <RadioButton
+                    android:id="@+id/radioButtonNewCreateProduct"
+                    android:layout_width="99dp"
+                    android:layout_height="48dp"
+                    android:text="New" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonUsedCreateProduct"
+                    android:layout_width="99dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="Used" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/labelCategoryCreateProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="304dp"
+                android:text="Category"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelConditionCreateProduct" />
+
+            <Spinner
+                android:id="@+id/spinnerCategoryCreateProduct"
+                android:layout_width="147dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="26dp"
+                android:entries="@array/productCategory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelCategoryCreateProduct"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupConditionCreateProduct" />
+
+            <Spinner
+                android:id="@+id/spinnerShipmentPlanCreateProduct"
+                android:layout_width="147dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="97dp"
+                android:layout_marginEnd="25dp"
+                android:entries="@array/shipmentPlans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/labelShipmentPlanCreateProduct"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerCategoryCreateProduct" />
+
+            <TextView
+                android:id="@+id/labelShipmentPlanCreateProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="304dp"
+                android:text="Shipment Plan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelCategoryCreateProduct" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonCreateCreateProduct"
+        android:layout_width="161dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="234dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="CREATE"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/buttonCancelCreateProduct"
+        android:layout_width="161dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="18dp"
+        android:backgroundTint="@color/light_grey"
+        android:text="CANCEL"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonCreateCreateProduct"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

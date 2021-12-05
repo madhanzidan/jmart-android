@@ -3,8 +3,11 @@ package com.zidanJmartKD.jmart_android;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,6 +27,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
+
+
     private static final Gson gson = new Gson();
     private static Account loggedAccount = null;
 
@@ -83,5 +88,8 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+    }
+    public static void setLoggedAccount(Account account) {
+        loggedAccount = account;
     }
 }
